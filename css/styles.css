@@ -2,6 +2,8 @@
     --primary-color: #757575;
     --secondary-color: #212121;
     --accent: #2196F3;
+    --grid-gap: 30px;
+    --grid-raw-elements: 3;
 }
 
 body {
@@ -42,6 +44,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+.no-padding {
+    padding: 0;
 }
 
 /* Header */
@@ -118,19 +124,15 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--accent);
 }
 
-.section:not(:first-child) {
+.section {
     padding-top: 94px;
     padding-bottom: 94px;
 }
-
-.section:last-child {
-    background-color: #F5F4FA;
-}
-
 /* Studio content */
 
 /* Hat */
 .hat {
+    margin: 0 auto;
     padding-top: 200px;
     padding-bottom: 200px;
     text-align: center;
@@ -165,7 +167,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Features */
 
-.features {
+.features-section {
     font-size: 14px;
     line-height: 1.71;
     letter-spacing: 0.03em;
@@ -200,6 +202,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Business */
 
+.business-section {
+    padding-top: 0;
+}
+
 .section-title {
     margin-bottom: 50px;
     font-size: 36px;
@@ -218,6 +224,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Team */
+
+.team-section {
+    background-color: #F5F4FA;
+}
 
 .team.list {
     display: flex;
@@ -289,12 +299,23 @@ footer .logo {
     display: none;
 }
 
+.filter-list {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-list .item + .item {
+    margin-left: 8px;
+}
+
 .filter-list .button {
+    padding: 6px 22px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.62;
     text-align: center;
     letter-spacing: 0.03em;
+    border-radius: 4px;
     color: var(--secondary-color);
 }
 
@@ -303,6 +324,33 @@ footer .logo {
 .filter-list .button:focus {
     color: #FFFFFF;
     background-color: var(--accent);
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+/* Projects */
+
+.projects-wrap {
+    margin-top: 50px;
+}
+
+.projects {
+    display: flex;
+    width: 100%;
+    margin-top: calc(-1*var(--grid-gap));
+    margin-left: calc(-1*var(--grid-gap));
+    flex-wrap: wrap;
+}
+
+.projects-pic {
+    display: block;
+    width: 100%;
+}
+
+.projects > .item {
+    display: block;
+    flex-basis: calc(100%/var(--grid-raw-elements) - var(--grid-gap));
+    margin-top: var(--grid-gap);
+    margin-left: var(--grid-gap);
 }
 
 .projects .projects-company {
@@ -317,4 +365,13 @@ footer .logo {
     line-height: 1.88;
     letter-spacing: 0.03em;
     color: var(--primary-color);
+}
+
+.projects-content {
+    padding: 20px 24px;
+    border: 1px solid #EEEEEE;
+}
+
+.projects-content p {
+    margin-top: 4px;
 }
